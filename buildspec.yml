@@ -1,0 +1,19 @@
+version: 0.2
+
+# Define CodeBuild phases
+phases:
+  install:
+    commands:
+      - docker-init
+
+  build:
+    commands:
+      - echo "CI Steps ..."
+
+  post_build:
+    commands:
+      - deploy-ecs
+
+cache:
+  paths:
+    - '/var/lib/docker'
